@@ -23,7 +23,7 @@ kubectl get pods --all-namespaces
 # Describe a specific pod
 kubectl describe pod <pod-name>
 ```
-# ex -kubectl describe pod frontend-deployment-755744d6d9-k4bt4
+# ex. of above: kubectl describe pod frontend-deployment-755744d6d9-k4bt4
 
 ```bash
 # Delete a pod
