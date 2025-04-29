@@ -7,7 +7,7 @@ Kubernets file for installation of k8s in ec2
 
 ### Pre-requisites to implement this project:
 -  Create 2 AWS EC2 instance (Ubuntu) with instance type t2.medium and root volume 29GB.
--  Setup <a href="https://github.com/DevMadhup/wanderlust/blob/devops/kubernetes/kubeadm.md"><u> Kubeadm </a></u>
+-  Setup <a href=""><u> Kubeadm </a></u>
 
 #
 ## Steps for Kubernetes deployment:
