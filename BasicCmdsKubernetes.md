@@ -130,7 +130,7 @@ kubectl exec -it <pod-name> -- /bin/bash
 kubectl top nodes
 kubectl top pods
 ```
-
+```bash
 # Get events in the cluster
 kubectl get events
 ```
