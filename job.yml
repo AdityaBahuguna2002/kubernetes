@@ -1,0 +1,25 @@
+## job in kebernetes : - one time task occur then use job in k8s. That does work in 1 time and terminate 
+
+kind: Job
+apiVersion: batch/v1
+
+metadata:
+  name: demo-job
+  namespace: nginx
+
+spec:
+  completions: 2
+  parallelism: 2
+
+  template:
+    metadata:
+      name: demo-job-pod
+      labels:
+        app: batch-task
+
+    spec:
+      containers:
+      - name: batch-container
+        image: busybox:latest
+        command: ["sh","-c","echo jai hind doston! && sleep 20"]
+      restartPolicy: Never
