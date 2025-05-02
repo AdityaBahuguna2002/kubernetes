@@ -1,7 +1,7 @@
 ## In k8s deployment is use for auto scaling and auto healing and also use for rollback updation. that is auto mate the k8s to create pods reduce downtime of live product.
 ## That is use for live match, live concert and etc.
 
-kind: Deployment  ## Deplyoment ( auto scaling, auto healing & rollback , updateion , 1 by 1 update pods ) / DeamonSet (in 1 pod assign atleast 1 container always ) / ReplicaSet(it creates pod instantly like: replicas: 4 , 4 pod create instantly) /
+kind: Deployment  ## Deplyoment ( auto scaling, auto healing & rollback , updateion , 1 by 1 update pods ) / DeamonSet (in 1 pod assign atleast 1 container always , not use replicas: 1 - section, automatically assign pods to conatiner) / ReplicaSet(it creates pod instantly like: replicas: 4 , 4 pod create instantly) /
 apiVersion: apps/v1
 
 # current i'm deploying Nginx server so i'm using nginx name 
