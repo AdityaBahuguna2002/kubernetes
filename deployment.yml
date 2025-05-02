@@ -1,7 +1,7 @@
 ## In k8s deployment is use for auto scaling and auto healing and also use for rollback updation. that is auto mate the k8s to create pods reduce downtime of live product.
 ## That is use for live match, live concert and etc.
 
-kind: Deployment
+kind: Deployment  ## Deplyoment ( auto scaling, auto healing & rollback , updateion , 1 by 1 update pods ) / DeamonSet (in 1 pod assign atleast 1 container always ) / ReplicaSet(it creates pod instantly like: replicas: 4 , 4 pod create instantly) /
 apiVersion: apps/v1
 
 # current i'm deploying Nginx server so i'm using nginx name 
@@ -9,6 +9,7 @@ metadata:
   name: nginx-deployment
   namespace: nginx
 
+## spec of replica creation and label on replicas
 spce:
   replicas: 2
   ## label = tag in the pod for their identification 
@@ -23,10 +24,12 @@ spce:
       ## here is use label for above identificatin (tag name on pod)
       labels:
         app: nginx
+        
     ## container create for nginx-dep-pod that runs inside the pods -----------
-    container:
-    - name: nginx  ## container name 
-      image: nignx:latest ## that image coming from docker-hub  
-      port:
-      - containerPort: 80 
+    spec:
+      container:
+      - name: nginx  ## container name 
+        image: nignx:latest ## that image coming from docker-hub  
+        port:
+        - containerPort: 80 
       ## for TCP for browser 
