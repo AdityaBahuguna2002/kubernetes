@@ -1,0 +1,50 @@
+## cron-job in k8s : when you want schedule like : backup - backup from website of 2 min after backup the data in the machine , then that is automatically do backup via set schedule 
+
+kind: CronJob
+apiVersion: batch/v1
+
+metadata:
+  name: minute-backup
+  namespace: nginx
+
+spec:
+  schedule: "* * * * *"  ## schedule set here "* * * * * " --- "(min) (hour) (day) (day of week) (day of month)"
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          name: minute-backup
+          labels:
+            app: minute-backup
+
+        spec:
+          containers:
+          - name: minute-backup
+            image: busybox
+            command:
+            - sh
+            - -c
+            - >  ## > use for continue code after that without useing "-" it 
+              echo "Backup Started";
+              mkdir -p /backups &&
+              mkdir -p /demo-data &&
+              cp -r /demo-data /backups &&
+              echo "Bachup Completed";
+
+            volumeMounts:
+              - name: data-volume
+                mountPath: /demo-data
+              - name: backup-volume
+                mountPath: /backups
+
+          restartPolicy: OnFailure
+
+          volumes:
+            - name: data-volume
+              hostPath:
+                path: /demo-data
+                type: DirectoryOrCreate
+            - name: backup-volume
+              hostPath:
+                path: /backups
+                type: DirectoryOrCreate
