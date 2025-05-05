@@ -15,7 +15,7 @@ nodes:
   image: kindest/node:v1.31.2
 
 
-## To run this file for creating cluster by KIND Cluster
+## To run this file for creating cluster by KIND Cluster that create 4 node: 1 is master-node, 3 worker-node & and it automatically join worker node by CNI (Container network interface)
   ```bash
   kind create cluster --name=cluster_name_here --config=config.yml
   ```
