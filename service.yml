@@ -1,0 +1,17 @@
+## service.yml file i k8s for use to project access from outside in pods  
+
+kind: Service
+apiVersion: v1
+
+metadta:
+  name: cptfrontend-service
+  namespcae: cptfrontendcode
+
+spec:
+  selector:
+    app: cptfrontendcode
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+  type: ClusterIP
