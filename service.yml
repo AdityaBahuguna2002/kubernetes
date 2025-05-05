@@ -5,7 +5,7 @@ apiVersion: v1
 
 metadta:
   name: cptfrontend-service
-  namespcae: cptfrontendcode
+  namespace: cptfrontendcode
 
 spec:
   selector:
