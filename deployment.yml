@@ -29,7 +29,7 @@ spec:
     spec:
       containers:
       - name: nginx  ## container name 
-        image: nignx:latest ## that image coming from docker-hub  
+        image: nginx:latest ## that image coming from docker-hub  
         ports:
         - containerPort: 80 
       ## for TCP for browser 
