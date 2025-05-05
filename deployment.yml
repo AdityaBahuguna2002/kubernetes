@@ -27,7 +27,7 @@ spec:
         
     ## container create for nginx-dep-pod that runs inside the pods -----------
     spec:
-      container:
+      containers:
       - name: nginx  ## container name 
         image: nignx:latest ## that image coming from docker-hub  
         port:
