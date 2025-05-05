@@ -1,0 +1,21 @@
+## config file to create cluster after kubctl and kind cluster installation 
+## we create cluster by config.yml file 
+
+kind: Cluster
+apiVersion: v1
+
+nodes: 
+- role: control-plane
+  image: kindest/node:v1.31.2
+- role: worker
+  image: kindest/node:v1.31.2
+- role: worker
+  image: kindest/node:v1.31.2
+- role: worker
+  image: kindest/node:v1.31.2
+
+
+## To run this file for creating cluster by KIND Cluster
+  ```bash
+  kind create cluster --name=cluster_name_here --config=config.yml
+  ```
