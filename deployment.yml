@@ -30,6 +30,6 @@ spec:
       containers:
       - name: nginx  ## container name 
         image: nignx:latest ## that image coming from docker-hub  
-        port:
+        ports:
         - containerPort: 80 
       ## for TCP for browser 
