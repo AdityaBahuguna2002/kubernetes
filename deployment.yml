@@ -10,7 +10,7 @@ metadata:
   namespace: nginx
 
 ## spec of replica creation and label on replicas
-spce:
+spec:
   replicas: 2
   ## label = tag in the pod for their identification 
   selector:
