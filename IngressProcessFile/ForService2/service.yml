@@ -1,0 +1,31 @@
+## this is a service file for the nginx deployment
+# ## This file is used to create a service for the nginx application in Kubernetes.
+
+kind: Service
+apiVersion: v1
+
+metadata:
+  name: nginx-service
+  namespace: cpt
+
+spec:
+  selector:
+    app: nginx
+
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: ClusterIP
+
+# ## to apply the service resource, use the following command:
+# kubectl apply -f service.yml
+
+# ## to check the service resource, use the following command:
+#  kubectl get service -n cpt
+
+# ## to delete the service resource, use the following command:
+# kubectl delete service nginx-service -n cpt
+
+# ## to check the service resource, use the following command:
+# kubectl describe service nginx-service -n cpt
