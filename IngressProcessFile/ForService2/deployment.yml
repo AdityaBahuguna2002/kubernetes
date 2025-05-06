@@ -1,0 +1,39 @@
+## this is for nginx deployment in cpt namespace
+## This file is used to create a deployment for the nginx application in Kubernetes.
+## This file is used to create a deployment for the nginx application in the cpt namespace.
+## The deployment manages the desired state of the nginx application, ensuring that the specified number of replicas are running.
+
+kind: Deployment
+apiVersion: apps/v1
+
+metadata:
+  name: nginx-deployment
+  namespace: cpt
+
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx
+
+  template:
+    metadata:
+      name: nginx-dep-pod
+      labels:
+        app: nginx
+
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+
+# ## to apply the deployment resource, use the following command:
+# # kubectl apply -f deployment.yml
+
+# ## to check the deployment resource, use the following command:
+# # kubectl get deployment -n cpt
+
+# ## to delete the deployment resource, use the following command:
+# kubectl delete deployment nginx-deployment -n cpt
