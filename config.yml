@@ -2,7 +2,7 @@
 ## we create cluster by config.yml file 
 
 kind: Cluster
-apiVersion: v1
+apiVersion: kind.x-k8s.io/v1alpha4
 
 nodes: 
 - role: control-plane
