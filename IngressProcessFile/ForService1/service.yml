@@ -1,0 +1,31 @@
+## service.yml file for cptfrontendcode project
+## This file is used to create a service for the cpt application in Kubernetes
+
+kind: Service
+apiVersion: v1
+
+metadata:
+  name: cpt-service
+  namespace: cpt
+
+spec:
+  selector:
+    app: cpt
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+  type: ClusterIP
+
+
+# ## to apply the service resource, use the following command:
+# # kubectl apply -f service.yml
+
+# ## to check the service resource, use the following command:
+# # kubectl get service -n cpt
+
+# ## to delete the service resource, use the following command:
+# # kubectl delete service cpt-service -n cpt
+
+# ## to check the service resource, use the following command:
+# # kubectl describe service cpt-service -n cpt
