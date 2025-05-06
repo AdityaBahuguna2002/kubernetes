@@ -1,0 +1,37 @@
+## create a kind cluster with 4 nodes, 1 control-plane and 3 workers
+## and use the kindest/node:v1.31.2 image for all nodes
+## in KIND Cluster configuration file format
+
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+
+nodes:
+- role: control-plane
+  image: kindest/node:v1.31.2
+- role: worker
+  image: kindest/node:v1.31.2
+- role: worker
+  image: kindest/node:v1.31.2
+- role: worker
+  image: kindest/node:v1.31.2
+
+## to run this file use the command
+# kind create cluster --name=cluster-name-here --config config.yaml
+
+# ## to delete the cluster use the command  
+# kind delete cluster --name cluster-name-here
+
+# ## to get the list of clusters use the command  
+# kind get clusters 
+
+# ## to get the list of nodes use the command
+# kubectl get nodes 
+
+# ## to get the list of pods use the command  
+# kubectl get pods --all-namespaces
+
+# ## to get the list of services use the command
+# kubectl get services --all-namespaces
+
+# ## to get the list of deployments use the command
+# kubectl get deployments --all-namespaces
