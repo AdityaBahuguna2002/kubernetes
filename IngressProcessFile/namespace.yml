@@ -1,0 +1,18 @@
+# create namespace for the cluster 
+# ## This file is used to create a namespace for the cpt application in Kubernetes.
+
+
+kind: Namespace
+apiVersion: v1
+
+metadata:
+  name: namespace-name-here
+
+# ## to create the namespace use the command
+# kubectl apply -f namespace.yaml
+
+# ## to delete the namespace use the command
+# kubectl delete namespace namespace-name-here
+
+# ## to get the list of namespaces use the command
+# kubectl get namespaces
