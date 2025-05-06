@@ -1,0 +1,42 @@
+## service 1/deployment.yml for cptfrontendcode project 
+## This file is used to create a deployment for the cpt application in Kubernetes
+## The deployment manages the desired tate of the application, ensuring that the specified number of replicas are running.
+
+kind: Deployment
+apiVersion: apps/v1
+
+
+metadata:
+  name: cpt-deployment
+  namespace: cpt
+
+
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: cpt
+
+  template:
+    metadata:
+      name: cpt-dep-pod
+      labels:
+        app: cpt
+    spec:
+      containers:
+      - name: cpt
+        image: adityabahuguna2002/cpt:latest
+        ports:
+        - containerPort: 3000
+
+# ## to apply the deployment resource, use the following command:
+# kubectl apply -f deployment.yml
+
+# ## to check the deployment resource, use the following command:
+# kubectl get deployment -n cpt
+
+# ## to check the deployment resource, use the following command:
+# kubectl describe deployment cpt-deployment -n cpt
+
+# ## to delete the deployment resource, use the following command:
+# kubectl delete deployment cpt-deployment -n cpt
