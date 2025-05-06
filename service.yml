@@ -3,7 +3,7 @@
 kind: Service
 apiVersion: v1
 
-metadta:
+metdata:
   name: cptfrontend-service
   namespace: cptfrontendcode
 
