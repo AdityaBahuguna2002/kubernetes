@@ -1,0 +1,55 @@
+## install nginx ingress controller from KIND Kubernetes official website
+
+##  https://kind.sigs.k8s.io/docs/user/ingress/
+## you need to apply the ingress.yml file in the server
+
+# ingress controller for cpt-nginx
+# This file defines the ingress resource for the cpt-nginx application.
+# It specifies the rules for routing incoming HTTP requests to the appropriate backend services.
+# The ingress resource is created in the "cpt" namespace and uses the NGINX ingress controller.
+# The ingress resource defines two rules:
+
+kind: Ingress
+apiVersion: networking.k8s.io/v1
+
+metadata:
+  name: cpt-nginx-ingress
+  namespace: cpt
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+
+spec:
+  rules:
+  - http:
+      paths:
+      - pathType: Prefix
+        path: /nginx
+        backend:
+          service:
+            name: nginx-service
+            port:
+              number: 80
+
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: cpt-service
+            port:
+              number: 3000
+
+## to apply the ingress resource, use the following command:  
+# kubectl apply -f ingress.yml
+
+# ## to check the ingress resource, use the following command:
+# kubectl get ingress -n cpt
+
+# ## to check the ingress resource, use the following command:
+# kubectl describe ingress cpt-nginx-ingress -n cpt
+
+# ## to check the ingress resource, use the following command:
+# kubectl get ingress cpt-nginx-ingress -n cpt -o yaml
+
+# ## to delete the ingress resource, use the following command:
+# kubectl delete ingress cpt-nginx-ingress -n cpt
+
